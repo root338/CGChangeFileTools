@@ -54,6 +54,8 @@ typedef NS_ENUM(NSInteger, CGResetImagePathAvailableType) {
 /// icon 图片 json 配置内容
 @property (nonatomic, strong) CGIconConfigModel *iconConfigModel;
 
+@property (nonatomic, strong) NSString *configInfoPath;
+
 @property (nonatomic, readonly) NSInteger count;
 
 /// 创建 icon 对象 push

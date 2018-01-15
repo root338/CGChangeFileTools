@@ -67,7 +67,7 @@
         iconModel   = [groupModel pop];
     }
     
-    [self resetImageConfig:groupModel.iconConfigModel availableImages:successResultArray];
+    [self resetImageConfig:groupModel availableImages:successResultArray];
     
     NSLog(@"重置完成");
     NSLog(@"运行结果");
@@ -103,7 +103,10 @@
         }];
     }];
     
-    
+    NSString *configJSON = [groupModel.iconConfigModel json];
+    NSError *writeError = nil;
+    BOOL isWrite = [configJSON writeToFile:groupModel.configInfoPath atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
+    NSAssert1(isWrite == YES && writeError == nil, @"图片信息写入文件失败, Error: %@", writeError);
 }
 
 /// 写入文件
@@ -207,14 +210,17 @@
             [iconNameGroup push:iconModel];
             
         }else if ([iconName hasSuffix:@".json"]) {
-            NSData *imagesConfigData = [NSData dataWithContentsOfFile:[self.targetProjectIconFolderPath stringByAppendingPathComponent:iconName]];
-            NSError *jsonError = nil;
+            
+            NSString *configInfoPath    = [self.targetProjectIconFolderPath stringByAppendingPathComponent:iconName];
+            NSData *imagesConfigData    = [NSData dataWithContentsOfFile:configInfoPath];
+            NSError *jsonError          = nil;
             id json = [NSJSONSerialization JSONObjectWithData:imagesConfigData options:NSJSONReadingMutableContainers error:&jsonError];
             
             CGIconConfigModel *configModel  = [[CGIconConfigModel alloc] init];
             [configModel setValuesForKeysWithDictionary:json];
             
             iconNameGroup.iconConfigModel   = configModel;
+            iconNameGroup.configInfoPath    = configInfoPath;
         }
     }];
     return iconNameGroup;
@@ -226,17 +232,15 @@
     NSString *iconNewName   = nil;
     if (rule.ruleType == CGChangeIconNameRuleTypeDefalut) {
         
-        NSMutableArray *iconNewNameArray    = [NSMutableArray array];
+        NSMutableString *iconNameMutableStr = [NSMutableString string];
         if (rule.iconNameHeader) {
             
-            [iconNewNameArray addObject:rule.iconNameHeader];
+            [iconNameMutableStr appendString:rule.iconNameHeader];
+            [iconNameMutableStr appendString:rule.mark];
         }
         
-        [iconNewNameArray addObject:[@(iconModel.imagePixelSize.width) stringValue]];
-        [iconNewNameArray addObject:[@(iconModel.imagePixelSize.height) stringValue]];
-        
-        iconNewName = [iconNewNameArray componentsJoinedByString:rule.mark];
-        iconNewName = [iconNewName stringByAppendingPathExtension:[iconModel.iconName pathExtension]];
+        [iconNameMutableStr appendFormat:@"%@x%@", [@(iconModel.imagePixelSize.width) stringValue], [@(iconModel.imagePixelSize.height) stringValue]];
+        iconNewName = [iconNameMutableStr stringByAppendingPathExtension:self.iconPathExtension];
     }
     
     return iconNewName;

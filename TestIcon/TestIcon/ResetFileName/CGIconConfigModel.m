@@ -62,7 +62,35 @@
     }
 }
 
-
+- (NSString *)json
+{
+    NSMutableArray *imagesArray = [NSMutableArray arrayWithCapacity:self.images.count];
+    [self.images enumerateObjectsUsingBlock:^(CGIconConfigImageModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *imageDict = @{
+                                    @"size"     : obj.size,
+                                    @"idiom"    : obj.idiom,
+                                    @"filename" : obj.filename,
+                                    @"scale"    : obj.scale,
+                                    };
+        [imagesArray addObject:imageDict];
+    }];
+    
+    NSDictionary *configInfo    = @{
+                                    @"version"  : self.info.version,
+                                    @"author"   : self.info.author,
+                                    };
+    
+    NSDictionary *configDict    = @{
+                                    @"images"   : imagesArray,
+                                    @"info"     : configInfo,
+                                    };
+    
+    NSError *writingJSONError   = nil;
+    NSData *jsonData            = [NSJSONSerialization dataWithJSONObject:configDict options:NSJSONWritingPrettyPrinted error:&writingJSONError];
+    NSString *jsonStr           = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return jsonStr;
+}
 
 @end
 

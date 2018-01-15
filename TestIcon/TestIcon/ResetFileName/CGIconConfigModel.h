@@ -17,6 +17,8 @@
 
 @property (nonatomic, assign) CGSize imageSize;
 
+
+
 @end
 
 @interface CGIconConfigInfoModel : NSObject
@@ -30,5 +32,7 @@
 
 @property (nonatomic, strong) NSArray<CGIconConfigImageModel *> *images;
 @property (nonatomic, strong) CGIconConfigInfoModel *info;
+
+- (NSString *)json;
 
 @end
