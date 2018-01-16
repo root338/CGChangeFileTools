@@ -11,6 +11,10 @@
 		185BCB542005ED91004B046A /* CGResetIconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185BCB532005ED91004B046A /* CGResetIconModel.m */; };
 		185BCB572005F973004B046A /* CGIconConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185BCB562005F973004B046A /* CGIconConfigModel.m */; };
 		1877DC02200C5344001169DC /* CGNoteFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877DC01200C5344001169DC /* CGNoteFile.m */; };
+		1877DC0D200D9F3A001169DC /* CGAddPropertyMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877DC0C200D9F3A001169DC /* CGAddPropertyMethod.m */; };
+		1877DC14200DAE6D001169DC /* CGSearchFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877DC13200DAE6D001169DC /* CGSearchFile.m */; };
+		1877DC17200DAE83001169DC /* CGSearchFileRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877DC16200DAE83001169DC /* CGSearchFileRule.m */; };
+		1877DC1A200DCB7C001169DC /* CGClassStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877DC19200DCB7C001169DC /* CGClassStructure.m */; };
 		18AFBF572004728D009B4D9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFBF562004728D009B4D9D /* main.m */; };
 		18AFBF5F20047576009B4D9D /* CGIconReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFBF5E20047576009B4D9D /* CGIconReplace.m */; };
 		18AFBF6220047BAF009B4D9D /* CGIconImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFBF6120047BAF009B4D9D /* CGIconImageModel.m */; };
@@ -39,6 +43,14 @@
 		185BCB562005F973004B046A /* CGIconConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGIconConfigModel.m; sourceTree = "<group>"; };
 		1877DC00200C5344001169DC /* CGNoteFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNoteFile.h; sourceTree = "<group>"; };
 		1877DC01200C5344001169DC /* CGNoteFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNoteFile.m; sourceTree = "<group>"; };
+		1877DC0B200D9F3A001169DC /* CGAddPropertyMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAddPropertyMethod.h; sourceTree = "<group>"; };
+		1877DC0C200D9F3A001169DC /* CGAddPropertyMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAddPropertyMethod.m; sourceTree = "<group>"; };
+		1877DC12200DAE6D001169DC /* CGSearchFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGSearchFile.h; sourceTree = "<group>"; };
+		1877DC13200DAE6D001169DC /* CGSearchFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGSearchFile.m; sourceTree = "<group>"; };
+		1877DC15200DAE83001169DC /* CGSearchFileRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGSearchFileRule.h; sourceTree = "<group>"; };
+		1877DC16200DAE83001169DC /* CGSearchFileRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGSearchFileRule.m; sourceTree = "<group>"; };
+		1877DC18200DCB7C001169DC /* CGClassStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGClassStructure.h; sourceTree = "<group>"; };
+		1877DC19200DCB7C001169DC /* CGClassStructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGClassStructure.m; sourceTree = "<group>"; };
 		18AFBF532004728D009B4D9D /* TestIcon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestIcon; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AFBF562004728D009B4D9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18AFBF5D20047576009B4D9D /* CGIconReplace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGIconReplace.h; sourceTree = "<group>"; };
@@ -92,6 +104,21 @@
 			path = ResetFileName;
 			sourceTree = "<group>";
 		};
+		1877DC0A200D9F19001169DC /* ClassAutoAddPropertyMethod */ = {
+			isa = PBXGroup;
+			children = (
+				1877DC0B200D9F3A001169DC /* CGAddPropertyMethod.h */,
+				1877DC0C200D9F3A001169DC /* CGAddPropertyMethod.m */,
+				1877DC18200DCB7C001169DC /* CGClassStructure.h */,
+				1877DC19200DCB7C001169DC /* CGClassStructure.m */,
+				1877DC12200DAE6D001169DC /* CGSearchFile.h */,
+				1877DC13200DAE6D001169DC /* CGSearchFile.m */,
+				1877DC15200DAE83001169DC /* CGSearchFileRule.h */,
+				1877DC16200DAE83001169DC /* CGSearchFileRule.m */,
+			);
+			path = ClassAutoAddPropertyMethod;
+			sourceTree = "<group>";
+		};
 		18AFBF4A2004728C009B4D9D = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				18AFBF562004728D009B4D9D /* main.m */,
+				1877DC0A200D9F19001169DC /* ClassAutoAddPropertyMethod */,
 				182AEAF020075ECE00A465A5 /* Replace */,
 				182AEAF120075ECE00A465A5 /* ResetFileName */,
 			);
@@ -175,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1877DC1A200DCB7C001169DC /* CGClassStructure.m in Sources */,
 				185BCB572005F973004B046A /* CGIconConfigModel.m in Sources */,
+				1877DC14200DAE6D001169DC /* CGSearchFile.m in Sources */,
 				18AFBF6220047BAF009B4D9D /* CGIconImageModel.m in Sources */,
 				1877DC02200C5344001169DC /* CGNoteFile.m in Sources */,
 				18AFBF572004728D009B4D9D /* main.m in Sources */,
@@ -183,7 +213,9 @@
 				18AFBF5F20047576009B4D9D /* CGIconReplace.m in Sources */,
 				18ED89452004950E00939146 /* CGResetIconName.m in Sources */,
 				18ED89482004A92E00939146 /* CGResetNameResult.m in Sources */,
+				1877DC17200DAE83001169DC /* CGSearchFileRule.m in Sources */,
 				185BCB512005AD75004B046A /* CGChangeIconNameRule.m in Sources */,
+				1877DC0D200D9F3A001169DC /* CGAddPropertyMethod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
